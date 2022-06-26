@@ -22,3 +22,81 @@ p{
     justify-content: space-between;
     font-weight: 400;
 }
+
+.section1{
+  background: linear-gradient(rgba(0, 0, 0, 0.8), rgb(192,72,72,0.6)), url("../../../../../images/glenn-carstens.jpg");
+  background-size: cover!important;
+  width: 100%;
+ min-height: 850px;
+}
+
+.search{
+  margin-top: 90px;
+}
+
+.searchi{
+  width: 700px;
+  height: 43px;
+  border: 0px;
+  background: white;
+  min-width: 848px;
+}
+
+
+.example-form {
+  min-width: 150px;
+  max-width: 500px;
+  width: 100%;
+}
+
+.example-full-width {
+  width: 100%;
+}
+
+.example-option-img {
+  vertical-align: middle;
+  margin-right: 8px;
+}
+
+[dir='rtl'] .example-option-img {
+  margin-right: 0;
+  margin-left: 8px;
+}
+
+.searchi:focus{
+  border: 0px;
+  outline: none;
+}
+
+.input-container {
+	padding-bottom: 1em;
+}
+.left-inner-addon {
+    position: relative;
+}
+.left-inner-addon input {
+    padding-left: 35px !important;
+}
+.left-inner-addon i {
+    position: absolute;
+    padding: 12px 12px;
+    pointer-events: none;
+}
+
+
+.headtxt{
+margin-top: 200px;
+}
+
+.maintxt{
+  color: whitesmoke;
+  font-size: 70px;
+  font-stretch:extra-expanded;
+  line-height: 70px;
+  text-align: center;
+}
+
+.mat-option{
+  background: white!important;
+  color:black;
+}

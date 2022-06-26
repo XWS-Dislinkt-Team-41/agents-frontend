@@ -1,6 +1,32 @@
-<div class="home">
-    <img class="logo" src="./assets/Dislinkt_logo.png">
-    <h1 class="title"> LOGIN </h1>
-    <p> User: <input type="text" maxlength=20 placeholder="20 characters maximum"> </p>
-    <p> Password: <input type="password"> </p>
+<div class="container-fluid pt-5 section1">
+  <div class="container headtxt">
+
+      <div class="maintxt">Find out what it's like to work in KVZR startups</div>
+    </div>
+
+   <div class="row d-flex pt-5">
+    <div class="container search">
+      <form class="example-form">
+        <div class="left-inner-addon input-container offset-3">
+          <i class="fa fa-search"></i>
+          <input matInput
+          class="searchi"
+                 aria-label="State"
+                 [matAutocomplete]="auto"
+                 [formControl]="stateCtrl">
+      </div>
+          <mat-autocomplete #auto="matAutocomplete">
+            <mat-option *ngFor="let state of filteredStates | async" [value]="state.name">
+              <img class="example-option-img" aria-hidden [src]="state.flag" height="25">
+              <span>{{state.name}}</span> |
+              <small>Population: {{state.population}}</small>
+            </mat-option>
+          </mat-autocomplete>
+
+
+        <br>
+      </form>
+    </div>
+   </div>
+
 </div>
