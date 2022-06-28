@@ -1,8 +1,8 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { ModalDirective } from 'angular-bootstrap-md';
-import { IBusinessOwnerRegistrationRequest } from 'src/app/model/businessOwnerRegistrationRequest';
+import { ICompanyRegistrationRequest } from 'src/app/model/companyRegistrationRequest';
 import { RequestStatus } from 'src/app/model/requestStatus';
-import { RequestsService } from 'src/app/service/requests.service';
+import { RequestsService } from 'src/app/services/requests.service';
 
 @Component({
   selector: 'app-answer-registration-request',
@@ -11,12 +11,10 @@ import { RequestsService } from 'src/app/service/requests.service';
 })
 export class AnswerRegistrationRequestComponent implements OnInit {
   @ViewChild('reg') addModal!: ModalDirective;
-  request: IBusinessOwnerRegistrationRequest = {
+  request: ICompanyRegistrationRequest = {
     id: 0,
-    accepted: RequestStatus.Waiting,
-    declineReason: '',
-    registrationExplanation: '',
-    userEmail: '',
+    status: RequestStatus.Waiting,
+    userId: 0,
   };
 
   constructor(private requestsService: RequestsService) {
@@ -39,16 +37,20 @@ export class AnswerRegistrationRequestComponent implements OnInit {
   }
 
   accept() {
-    this.requestsService.acceptRegistrationRequest(this.request).subscribe((request) => {
-      this.requestsService.submitedRegistrationRequest();
-      this.close();
-    });
+    this.requestsService
+      .acceptRegistrationRequest(this.request)
+      .subscribe(() => {
+        this.requestsService.submitedRegistrationRequest();
+        this.close();
+      });
   }
 
   decline() {
-    this.requestsService.declineRegistrationRequest(this.request).subscribe((request) => {
-      this.requestsService.submitedRegistrationRequest();
-      this.close();
-    });
+    this.requestsService
+      .declineRegistrationRequest(this.request)
+      .subscribe(() => {
+        this.requestsService.submitedRegistrationRequest();
+        this.close();
+      });
   }
 }

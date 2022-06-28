@@ -4,5 +4,4 @@ export interface ICompanyRegistrationRequest {
   id: number;
   status : RequestStatus;
   userId: number;
-  companyId: number;
 }

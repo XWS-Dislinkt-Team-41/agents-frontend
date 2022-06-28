@@ -19,6 +19,9 @@ import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatInputModule } from '@angular/material/input';
 import { MatTabsModule } from '@angular/material/tabs';
+import { AnswerRegistrationRequestComponent } from './pages/admin-pages/answer-registration-request/answer-registration-request.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { MDBBootstrapModule } from 'angular-bootstrap-md';
 
 @NgModule({
   declarations: [
@@ -28,6 +31,7 @@ import { MatTabsModule } from '@angular/material/tabs';
     HomeComponent,
     RequestsComponent,
     RegistrationRequestsComponent,
+    AnswerRegistrationRequestComponent,
   ],
   imports: [
     BrowserModule,
@@ -43,6 +47,8 @@ import { MatTabsModule } from '@angular/material/tabs';
     MatSlideToggleModule,
     MatInputModule,
     MatTabsModule,
+    NgbModule,
+    MDBBootstrapModule.forRoot(),
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
