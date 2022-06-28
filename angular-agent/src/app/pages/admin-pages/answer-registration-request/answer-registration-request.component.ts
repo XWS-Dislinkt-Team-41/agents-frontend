@@ -1,7 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { ModalDirective } from 'angular-bootstrap-md';
-import { ICompanyRegistrationRequest } from 'src/app/model/companyRegistrationRequest';
-import { RequestStatus } from 'src/app/model/requestStatus';
+import { emptyCompanyRegistrationRequest, ICompanyRegistrationRequest } from 'src/app/model/companyRegistrationRequest';
 import { RequestsService } from 'src/app/services/requests.service';
 
 @Component({
@@ -11,11 +10,7 @@ import { RequestsService } from 'src/app/services/requests.service';
 })
 export class AnswerRegistrationRequestComponent implements OnInit {
   @ViewChild('reg') addModal!: ModalDirective;
-  request: ICompanyRegistrationRequest = {
-    id: 0,
-    status: RequestStatus.Waiting,
-    userId: 0,
-  };
+  request: ICompanyRegistrationRequest = emptyCompanyRegistrationRequest;
 
   constructor(private requestsService: RequestsService) {
     requestsService.openDialogRegistration$.subscribe((request) => {

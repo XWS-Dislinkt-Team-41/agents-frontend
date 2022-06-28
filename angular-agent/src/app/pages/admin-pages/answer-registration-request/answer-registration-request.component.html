@@ -30,10 +30,28 @@
             type="text"
             id="id"
             class="form-control"
-            [(ngModel)]="request.id"
+            [ngModel]="request.id"
             [disabled]="true"
             mdbInput
           />
+          <label for="activityDescription">Contact Information</label>
+          <textarea
+            type="text"
+            id="contactInformation"
+            class="form-control"
+            [ngModel]="request.contactInformation"
+            [disabled]="true"
+            mdbInput
+          ></textarea>
+          <label for="activityDescription">Activity Description</label>
+          <textarea
+            type="text"
+            id="activityDescription"
+            class="form-control"
+            [ngModel]="request.activityDescription"
+            [disabled]="true"
+            mdbInput
+          ></textarea>
         </div>
 
         <div class="modal-footer d-flex justify-content-center">
