@@ -17,10 +17,8 @@ export class HasRoleDirective {
   ) {}
 
   ngOnInit() {
-    this.authenticationService.user.subscribe((user) => {
-      this.currentUser = user;
-      this.updateView();
-    });
+    this.currentUser = this.authenticationService.user;
+    this.updateView();
   }
 
   @Input()

@@ -1,12 +1,9 @@
 import { AuthenticationService } from './../../services/authentication.service';
 import { IUserLogin } from './../../model/userLogin';
 import { Component, OnInit } from '@angular/core';
-import {
-  IUser,
-} from 'src/app/model/user';
+import { IUser } from 'src/app/model/user';
 
 import { Router } from '@angular/router';
-import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-header',
@@ -23,7 +20,6 @@ export class HeaderComponent implements OnInit {
 
   constructor(
     private authenticationService: AuthenticationService,
-    private userService: UserService,
     private router: Router
   ) {}
 
@@ -50,20 +46,12 @@ export class HeaderComponent implements OnInit {
   }
 
   logout() {
-    this.userService.purgeUser();
+    this.authenticationService.purgeUser();
     this.authenticationService.logout();
   }
 
   getUser() {
-    this.userService.getCurrentUser().subscribe({
-      next: (user) => {
-        this.loggedInUser = user;
-      },
-      error: (error) => {
-        this.errorMessage = error.message;
-        console.error('There was an error!', error);
-      },
-    });
+    this.loggedInUser = this.authenticationService.user;
   }
 
   isLoggedIn(): boolean {

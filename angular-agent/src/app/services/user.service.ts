@@ -1,4 +1,4 @@
-import { IUser } from './../model/user';
+import { IUser, emptyUser } from './../model/user';
 
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
@@ -12,32 +12,13 @@ import {
   throwError,
 } from 'rxjs';
 import { environment } from 'src/environments/environment';
-import { AuthenticationService } from './authentication.service';
 
 @Injectable({
   providedIn: 'root',
 })
 export class UserService {
-  private currentUserSubject = new BehaviorSubject<IUser>({} as IUser);
-  public currentUser = this.currentUserSubject
-    .asObservable()
-    .pipe(distinctUntilChanged());
-
-  constructor(
-    private http: HttpClient,
-    authenticationService: AuthenticationService
-  ) {
-    if (authenticationService.isLoggedIn()) {
-      this.getCurrentUser().subscribe({
-        next: (user) => {
-          this.currentUserSubject.next(user);
-        },
-        error: (error) => {
-          console.error('There was an error!', error);
-        },
-      });
-    }
-  }
+  user: IUser = emptyUser;
+  constructor(private http: HttpClient) {}
 
   deleteUser(id: number): Observable<IUser> {
     return this.http
@@ -57,15 +38,6 @@ export class UserService {
       );
   }
 
-  getCurrentUser(): Observable<IUser> {
-    return this.http.get<any>(`${environment.apiUrl}/user`).pipe(
-      map((user: IUser) => {
-        this.currentUserSubject.next(user);
-        return user;
-      })
-    );
-  }
-
   checkUser(id: number): Observable<IUser> {
     return this.http
       .get<any>(`${environment.apiUrl}/user/credentials/${id}`)
@@ -79,15 +51,10 @@ export class UserService {
     return this.http.put<any>(`${environment.apiUrl}/user/${user.id}`, user);
   }
 
-  purgeUser() {
-    this.currentUserSubject.next({} as IUser);
-  }
-
   changePassword(password: string): Observable<any> {
-    let user: IUser = this.currentUserSubject.value;
-    console.log(user.id);
+    console.log(this.user.id);
     return this.http.put<any>(`${environment.apiUrl}/admin/changePassword`, {
-      id: user.id,
+      id: this.user.id,
       password: password,
     });
   }

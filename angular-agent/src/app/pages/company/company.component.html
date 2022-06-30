@@ -1,0 +1,22 @@
+<div class="container-fluid p-5 top">
+  <div class="row d-flex firsts">
+    <div class="col-3 logo"></div>
+    <div class="col-4 txtl-container">
+      <div class="txtl">
+        {{ company.Name }}<br />
+        <div class="txtl" *ngIf="company.Grade != 0">
+          {{ company.Grade }}
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row d-flex companyt pt-3">
+    <mat-tab-group>
+      <mat-tab label="About Company"> Content 1 </mat-tab>
+      <mat-tab label="Comments"> Content 2 </mat-tab>
+      <mat-tab label="Payments and benefits"> Content 3 </mat-tab>
+      <mat-tab label="Interviews"> Content 4 </mat-tab>
+      <mat-tab label="Jobs"> Content 5 </mat-tab>
+    </mat-tab-group>
+  </div>
+</div>
