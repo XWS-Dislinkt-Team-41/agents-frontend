@@ -1,0 +1,15 @@
+.p-30 {
+  padding: 1.76470588em!important;
+}
+
+.mt-30 {
+  margin-top: 1.76470588rem!important;
+}
+
+.outline-shadow {
+  box-shadow: 3px 6px 29px 6px #dcdcdc!important;
+}
+
+.bg-img {
+  background-image: url("https://source.unsplash.com/1920x600/?company");
+}

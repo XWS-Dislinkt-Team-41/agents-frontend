@@ -1,0 +1,20 @@
+.p-30 {
+  padding: 1.76470588em!important;
+}
+
+.mt-30 {
+  margin-top: 1.76470588rem!important;
+}
+
+.label {
+  font-size: 80% !important;
+}
+
+.image{
+  object-fit: contain;
+  vertical-align: middle;
+  max-width: 100%;
+  background-color: initial;
+  position: relative;
+  height: auto!important;
+}

@@ -22,6 +22,9 @@ import { MatTabsModule } from '@angular/material/tabs';
 import { AnswerRegistrationRequestComponent } from './pages/admin-pages/answer-registration-request/answer-registration-request.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
+import { OwnerJobOffersComponent } from './pages/owner-pages/owner-job-offers/owner-job-offers.component';
+import { OwnerJobOfferComponent } from './pages/owner-pages/owner-job-offer/owner-job-offer.component';
+import { JobOfferComponent } from './components/header/job-offer/job-offer.component';
 
 @NgModule({
   declarations: [
@@ -32,6 +35,9 @@ import { MDBBootstrapModule } from 'angular-bootstrap-md';
     RequestsComponent,
     RegistrationRequestsComponent,
     AnswerRegistrationRequestComponent,
+    OwnerJobOffersComponent,
+    OwnerJobOfferComponent,
+    JobOfferComponent,
   ],
   imports: [
     BrowserModule,
