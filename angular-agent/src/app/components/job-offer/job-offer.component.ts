@@ -1,4 +1,4 @@
-import { IJobOffer, emptyJobOffer } from './../../../model/jobOffer';
+import { IJobOffer, emptyJobOffer } from '../../model/jobOffer';
 import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
