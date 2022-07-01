@@ -1,1 +1,27 @@
-<p>owner-job-offers works!</p>
+<div class="header bg-gradient-danger pb-8 pt-9">
+  <div class="container-fluid">
+    <div class="header-body">
+      <div class="text-center">
+        <h1 class="text-white display-3">Company Job Offers</h1>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="container mt--7 pb-5">
+  <div class="row job-offer">
+    <div class="col-2 ml-auto">
+      <div class="card">
+            <button type="button" class="btn btn-primary">Add</button>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <div class="mb-30 job-offer" *ngFor="let jobOffer of jobOffers">
+        <span routerLink="/jobOffer/{{ jobOffer.id }}" class="cursor-pointer">
+          <app-job-offer [jobOffer]="jobOffer"></app-job-offer>
+        </span>
+      </div>
+    </div>
+  </div>
+</div>

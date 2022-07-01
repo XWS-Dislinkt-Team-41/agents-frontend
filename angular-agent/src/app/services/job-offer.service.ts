@@ -42,6 +42,12 @@ export class JobOfferService {
       .pipe(catchError(this.handleError));
   }
 
+  getAllJobOffers(): Observable<IJobOffer[]> {
+    return this.http
+      .get<IJobOffer[]>(`${this.jobOfferUrl}`)
+      .pipe(catchError(this.handleError));
+  }
+
   publishJobOffer(jobOffer: IJobOffer): Observable<IJobOffer> {
     return this.http
       .post<IJobOffer>(`${this.jobOfferUrl}/publish`, jobOffer)

@@ -10,6 +10,10 @@
   font-size: 80% !important;
 }
 
+.outline-shadow {
+  box-shadow: 3px 6px 29px 6px #dcdcdc!important;
+}
+
 .image{
   object-fit: contain;
   vertical-align: middle;

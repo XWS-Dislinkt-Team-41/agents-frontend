@@ -1,38 +1,49 @@
-<div class="card-body px-3">
-  <div width="16" class="row">
-    <div class="col-4">
-      <div class="border p-1">
-        <img
-          src="https://source.unsplash.com/300x200/?company%20logo"
-          class="ui image company-logo align-center"
-        />
-      </div>
-    </div>
-    <div class="col-8">
-      <h2 class="header font-weight-bold m-0">
-        {{ jobOffer.name }}
-      </h2>
-      <div class="pt-3 pl-3">
-        <div class="row pb-1">
-          <div class="col-2 p-0">Position:</div>
-          <div class="col-10 p-0">
-            <strong>{{ jobOffer.position }}</strong>
+<div class="card outline-shadow mt-30 p-30">
+  <div class="row">
+    <div class="col-10">
+      <div class="card-body px-3">
+        <div width="16" class="row">
+          <div class="col-4">
+            <div class="border p-1">
+              <img
+                src="https://source.unsplash.com/300x200/?company%20logo"
+                class="ui image company-logo align-center"
+              />
+            </div>
           </div>
-        </div>
-        <div class="row pb-3">
-          <div class="col-2 p-0">Seniority:</div>
-          <div class="col-10 p-0">
-            <strong>{{ jobOffer.seniority }}</strong>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col p-0">
-            <div *ngFor="let skill of jobOffer.skills">
-              <span class="badge badge-danger p-2 m-2 label">{{skill.name}}</span>
+          <div class="col-8">
+            <h2 class="header font-weight-bold m-0">
+              {{ jobOffer.name }}
+            </h2>
+            <div class="pt-3 pl-3">
+              <div class="row pb-1">
+                <div class="col-2 p-0">Position:</div>
+                <div class="col-10 p-0">
+                  <strong>{{ jobOffer.position }}</strong>
+                </div>
+              </div>
+              <div class="row pb-3">
+                <div class="col-2 p-0">Seniority:</div>
+                <div class="col-10 p-0">
+                  <strong>{{ jobOffer.seniority }}</strong>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col p-0">
+                  <div *ngFor="let skill of jobOffer.skills">
+                    <span class="badge badge-danger p-2 m-2 label">{{
+                      skill.name
+                    }}</span>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </div>
+    </div>
+    <div class="col-2">
+      <ng-content select="[jobOffer-contorls]"></ng-content>
     </div>
   </div>
 </div>
