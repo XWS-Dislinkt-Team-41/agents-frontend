@@ -1,9 +1,9 @@
 export interface IRole {
   id: number;
-  name: string;
+  name: number;
 }
 
 export const emptyRole = {
   id: 0,
-  name: 'CUSTOMER',
+  name: 0,
 };

@@ -38,7 +38,7 @@ export class ChangePasswordComponent implements OnInit {
 
   ngOnInit() {
     if (this.isUserAdmin()) {
-     // this.checkFirstTimeLoginIn();
+      // this.checkFirstTimeLoginIn();
     }
   }
 
@@ -87,7 +87,7 @@ export class ChangePasswordComponent implements OnInit {
 
   isUserAdmin(): boolean {
     if (!this.loggedInUser) return false;
-    return this.loggedInUser.role.name === 'ROLE_ADMIN';
+    return this.loggedInUser.role.name === 3;
   }
 
   ngOnChanges(changes: SimpleChanges): void {

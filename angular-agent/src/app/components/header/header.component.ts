@@ -11,7 +11,10 @@ import { Router } from '@angular/router';
   styleUrls: ['./header.component.css'],
 })
 export class HeaderComponent implements OnInit {
-  userLogin!: IUserLogin;
+  userLogin: IUserLogin = {
+    username: '',
+    password: '',
+  };
   username!: string;
   password!: string;
   errorMessage!: string;
@@ -24,25 +27,10 @@ export class HeaderComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+    this.getUser();
     if (this.isLoggedIn()) {
-      this.getUser();
+      this.authenticationService.getUser().subscribe();
     }
-  }
-
-  login() {
-    this.userLogin = {
-      username: this.username,
-      password: this.password,
-    };
-    this.authenticationService.login(this.userLogin).subscribe({
-      next: (res) => {
-        this.getUser();
-      },
-      error: (error) => {
-        this.errorMessage = error.message;
-        console.error('There was an error!', error);
-      },
-    });
   }
 
   logout() {
@@ -51,7 +39,11 @@ export class HeaderComponent implements OnInit {
   }
 
   getUser() {
-    this.loggedInUser = this.authenticationService.user;
+    this.authenticationService.userSubject.subscribe((user) => {
+      if (user) {
+        this.loggedInUser = user;
+      }
+    });
   }
 
   isLoggedIn(): boolean {

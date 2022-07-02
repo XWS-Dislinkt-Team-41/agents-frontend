@@ -16,21 +16,15 @@ export class AuthenticationService {
   private userUrl = `${environment.apiUrl}/user`;
 
   private accessToken = localStorage.getItem('jwt');
-  private userSubject = new BehaviorSubject<IUser>({} as IUser);
+  public userSubject = new BehaviorSubject<IUser>({} as IUser);
   public userObs = this.userSubject.asObservable().pipe(distinctUntilChanged());
 
-  constructor(private router: Router, private http: HttpClient) {
-    if (this.isLoggedIn()) {
-      this.getUser().subscribe((user) => this.userSubject.next(user));
-    }
-  }
+  constructor(private router: Router, private http: HttpClient) {}
 
   getUser(): Observable<IUser> {
-    return this.http.get<any>(`${this.userUrl}`).pipe(
+    return this.http.get<IUser>(`${this.userUrl}`).pipe(
       map((user: IUser) => {
-        console.log('upao3');
         this.userSubject.next(user);
-        console.log('upao2');
         return user;
       })
     );
@@ -40,12 +34,13 @@ export class AuthenticationService {
     return this.userSubject.value;
   }
 
-  login(user: IUserLogin) {
-    return this.http.post<any>(`${this.userUrl}/login`, user).pipe(
+  login(user: IUserLogin): Observable<IUser> {
+    return this.http.post<IUser>(`${this.userUrl}/login`, user).pipe(
       map((res: IUser) => {
         localStorage.setItem('jwt', res.token);
         this.accessToken = res.token;
-        return this.getUser();
+        this.getUser().subscribe();
+        return res;
       })
     );
   }

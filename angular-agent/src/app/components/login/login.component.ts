@@ -52,14 +52,9 @@ export class LoginComponent implements OnInit {
   }
 
   login() {
-    this.authenticationService.login(this.userLogin).subscribe({
-      next: (res) => {
-        this.modalReference.close();
-      },
-      error: (error) => {
-        this.errorMessage = error.message;
-        console.error('There was an error!', error);
-      },
+    this.authenticationService.login(this.userLogin).subscribe(() => {
+      this.getUser();
+      this.modalReference.close();
     });
   }
 
@@ -70,6 +65,14 @@ export class LoginComponent implements OnInit {
 
   isLoggedIn(): boolean {
     return this.authenticationService.isLoggedIn();
+  }
+
+  getUser() {
+    this.authenticationService.getUser().subscribe((user) => {
+      if (user) {
+        this.loggedInUser = user;
+      }
+    });
   }
 
   ngOnInit(): void {}
