@@ -1,4 +1,5 @@
 import { RequestsComponent } from './pages/admin-pages/requests/requests.component';
+import { CompanyComponent } from './pages/company/company.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './pages/home/home.component';
@@ -10,6 +11,7 @@ const routes: Routes = [
   { path: 'requests', component: RequestsComponent },
   { path: 'jobOffer/:id', component: OwnerJobOfferComponent },
   { path: 'jobOffers', component: OwnerJobOffersComponent },
+  { path: 'company', component: CompanyComponent },
   { path: '**', pathMatch: 'full', redirectTo: 'home' },
 ];
 

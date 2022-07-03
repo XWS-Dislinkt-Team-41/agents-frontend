@@ -7,7 +7,7 @@ import { AuthenticationService } from '../services/authentication.service';
 })
 export class HasRoleDirective {
   currentUser!: IUser;
-  requiredRole!: string;
+  requiredRole!: number;
   isVisible = false;
 
   constructor(
@@ -17,14 +17,16 @@ export class HasRoleDirective {
   ) {}
 
   ngOnInit() {
-    this.authenticationService.user.subscribe((user) => {
+    this.currentUser = this.authenticationService.user;
+    this.authenticationService.userObs.subscribe((user) => {
       this.currentUser = user;
       this.updateView();
     });
+    this.updateView();
   }
 
   @Input()
-  set appHasRole(role: string) {
+  set appHasRole(role: number) {
     this.requiredRole = role;
     this.updateView();
   }
@@ -43,7 +45,7 @@ export class HasRoleDirective {
 
   private hasRole(): boolean {
     if (this.currentUser && this.currentUser.role && this.requiredRole) {
-      return this.currentUser.role.name === this.requiredRole;
+      return this.currentUser.role === this.requiredRole;
     }
     return false;
   }

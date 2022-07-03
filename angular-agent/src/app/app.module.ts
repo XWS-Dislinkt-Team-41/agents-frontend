@@ -25,6 +25,10 @@ import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import { OwnerJobOffersComponent } from './pages/owner-pages/owner-job-offers/owner-job-offers.component';
 import { OwnerJobOfferComponent } from './pages/owner-pages/owner-job-offer/owner-job-offer.component';
 import { JobOfferComponent } from './components/job-offer/job-offer.component';
+import { LoginComponent } from './components/login/login.component';
+import { RegisterUserComponent } from './components/register-user/register-user.component';
+import { CompanyComponent } from './pages/company/company.component';
+import { HasRoleDirective } from './directive/hasRole.directive';
 
 @NgModule({
   declarations: [
@@ -36,8 +40,11 @@ import { JobOfferComponent } from './components/job-offer/job-offer.component';
     RegistrationRequestsComponent,
     AnswerRegistrationRequestComponent,
     OwnerJobOffersComponent,
-    OwnerJobOfferComponent,
     JobOfferComponent,
+    RegisterUserComponent,
+    LoginComponent,
+    CompanyComponent,
+    HasRoleDirective
   ],
   imports: [
     BrowserModule,

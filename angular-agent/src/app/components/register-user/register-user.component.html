@@ -1,0 +1,86 @@
+<div>
+  <button class="btn btn-outline-danger reservationbtn" (click)="open(content)">
+    Register
+  </button>
+  <ng-template #content let-modal>
+    <div class="modal-header">
+      <h4 class="modal-title" id="modal-basic-title">
+        KVZR AGENT Register form
+      </h4>
+      <button
+        type="button"
+        class="close"
+        aria-label="Close"
+        (click)="modal.dismiss('Cross click')"
+      >
+        <i class="fa fa-close"></i>
+      </button>
+    </div>
+    <div class="modal-body">
+      <form class="px-4 py-3">
+        <div class="form-group">
+          <ng-template>Username </ng-template>
+          <mat-form-field appearance="fill">
+            <mat-label>Username</mat-label>
+            <input
+              matInput
+              [(ngModel)]="newUser.username"
+              name="username"
+              placeholder="Username"
+              value="Enter your username here..."
+              required
+            />
+          </mat-form-field>
+        </div>
+        <div class="form-group">
+          <ng-template>First Name </ng-template>
+          <mat-form-field appearance="fill">
+            <mat-label>First Name </mat-label>
+            <input
+              matInput
+              [(ngModel)]="newUser.firstName"
+              name="firstName"
+              placeholder="First Name"
+              value="Enter your first name here..."
+              required
+            />
+          </mat-form-field>
+        </div>
+        <div class="form-group">
+          <ng-template>Last Name </ng-template>
+          <mat-form-field appearance="fill">
+            <mat-label>Last Name </mat-label>
+            <input
+              matInput
+              [(ngModel)]="newUser.lastName"
+              name="lastName"
+              placeholder="Last Name"
+              value="Enter your last name here..."
+              required
+            />
+          </mat-form-field>
+        </div>
+        <div class="form-group">
+          <ng-template matStepLabel>Fill out password</ng-template>
+          <mat-form-field appearance="fill">
+            <mat-label>Password</mat-label>
+            <input
+              type="password"
+              matInput
+              [(ngModel)]="newUser.password"
+              name="password"
+              placeholder="Password"
+              value="Enter your password here..."
+              required
+            />
+          </mat-form-field>
+        </div>
+      </form>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-outline-dark" (click)="register()">
+        Create
+      </button>
+    </div>
+  </ng-template>
+</div>

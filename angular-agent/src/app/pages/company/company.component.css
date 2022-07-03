@@ -1,0 +1,37 @@
+.top {
+  margin-top: 80px;
+}
+.logo {
+  background-image: url("https://images.unsplash.com/photo-1622465911368-72162f8da3e2?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1742&q=80");
+  background-size: cover;
+  background-position-x: -100px;
+  height: 300px;
+}
+
+.txtl {
+  position: absolute;
+  top: 30%;
+  font-size: 33px;
+  margin-top: 33px;
+}
+
+.txtl-container {
+  text-align: center;
+  position: relative;
+  margin-left: 33px;
+}
+
+.firsts {
+  padding-left: 6%;
+  padding-right: 6%;
+}
+
+.mat-tab-label {
+  background: red !important;
+  margin-right: 30px !important;
+}
+
+.companyt {
+  margin-left: 10%;
+  width: 90%;
+}

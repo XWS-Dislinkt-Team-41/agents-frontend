@@ -15,119 +15,7 @@
     <a class="navbar-brand" href="#">KVZR AGENT</a>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
-        <li class="nav-item" *appHasRole="['ROLE_COTTAGE_OWNER']">
-          <a
-            class="nav-link"
-            [routerLink]="['/cottageOwnerHome']"
-            routerLinkActive="router-link-active"
-            >Cottages</a
-          >
-        </li>
-        <li class="nav-item" *appHasRole="['ROLE_COTTAGE_OWNER']">
-          <div ngbDropdown>
-            <a class="nav-link" ngbDropdownToggle> Reservations </a>
-            <div
-              ngbDropdownMenu
-              class="dropdown-menu-right dropdown-menu-arrow"
-            >
-              <a
-                class="dropdown-item"
-                routerLinkActive="router-link-active"
-                [routerLink]="['/newCottageReservation']"
-                >New reservation</a
-              >
-              <a
-                class="dropdown-item"
-                [routerLink]="['/newCottageQuickReservation']"
-                routerLinkActive="router-link-active"
-                >New quick reservation</a
-              >
-            </div>
-          </div>
-        </li>
-        <li class="nav-item" *appHasRole="['ROLE_BOAT_OWNER']">
-          <a class="nav-link" [routerLink]="['/boatOwnerHome']">Boats</a>
-        </li>
-        <li class="nav-item" *appHasRole="['ROLE_BOAT_OWNER']">
-          <div ngbDropdown>
-            <a class="nav-link" ngbDropdownToggle> Reservations </a>
-            <div
-              ngbDropdownMenu
-              class="dropdown-menu-right dropdown-menu-arrow"
-            >
-              <a
-                class="dropdown-item"
-                routerLinkActive="router-link-active"
-                [routerLink]="['/newBoatReservation']"
-                >New reservation</a
-              >
-              <a
-                class="dropdown-item"
-                [routerLink]="['/newBoatQuickReservation']"
-                routerLinkActive="router-link-active"
-                >New quick reservation</a
-              >
-            </div>
-          </div>
-        </li>
-        <li class="nav-item" *appHasRole="['ROLE_FISHING_TRAINER']">
-          <a
-            class="nav-link"
-            [routerLink]="['/fishingTrainerCourses']"
-            routerLinkActive="router-link-active"
-            >Fishing Courses</a
-          >
-        </li>
-        <li class="nav-item" *appHasRole="['ROLE_ADMIN']">
-          <a
-            class="nav-link"
-            [routerLink]="['/users']"
-            routerLinkActive="router-link-active"
-            >Users</a
-          >
-        </li>
-        <li class="nav-item" *appHasRole="['ROLE_ADMIN']">
-          <a
-            class="nav-link"
-            [routerLink]="['/services']"
-            routerLinkActive="router-link-active"
-            >Site Services</a
-          >
-        </li>
         <li class="nav-item">
-          <a
-            class="nav-link"
-            [routerLink]="['/requests']"
-            routerLinkActive="router-link-active"
-            >Requests</a
-          >
-        </li>
-        <li class="nav-item" *appHasRole="['ROLE_CUSTOMER']">
-          <a
-            *ngIf="isLoggedIn() && loggedInUser"
-            class="nav-link"
-            [routerLink]="['/reservationHistory/' + loggedInUser.id]"
-            routerLinkActive="router-link-active"
-            >Reservations</a
-          >
-        </li>
-        <li class="nav-item" *appHasRole="['ROLE_ADMIN']">
-          <a
-            class="nav-link"
-            [routerLink]="['/loyaltySettings']"
-            routerLinkActive="router-link-active"
-            >Loyalty Settings</a
-          >
-        </li>
-        <li class="nav-item" *appHasRole="['ROLE_ADMIN']">
-          <a
-            class="nav-link"
-            [routerLink]="['/aplicationIncome']"
-            routerLinkActive="router-link-active"
-            >Income</a
-          >
-        </li>
-        <li class="nav-item" >
           <a
             class="nav-link"
             [routerLink]="['/aplicationIncome']"
@@ -135,14 +23,7 @@
             >Test</a
           >
         </li>
-        <li class="nav-item" *appHasRole="['ROLE_ADMIN']">
-          <a
-            class="nav-link"
-            [routerLink]="['/registerAdmin']"
-            routerLinkActive="router-link-active"
-            >New Admin</a
-          >
-        </li>
+
         <li class="nav-item" *ngIf="isLoggedIn() && loggedInUser">
           <a class="nav-link" [routerLink]="['/user/' + loggedInUser.id]">
             Profile
@@ -152,25 +33,18 @@
 
       <div class="dropdown ml-2" *ngIf="!isLoggedIn()">
         <div
-        class="btn register"
-        type="button"
-        id="dropdownForm"
-        data-toggle="dropdown"
-        aria-haspopup="true"
-        aria-expanded="false"
-      >
-      Register
-      </div>
-        <button
-          class="btn btn-danger dropdown-toggle"
+          class="btn register"
           type="button"
           id="dropdownForm"
           data-toggle="dropdown"
           aria-haspopup="true"
           aria-expanded="false"
         >
-          Login
-        </button>
+          <app-register-user></app-register-user>
+        </div>
+        <div class="btn btn-danger" type="button">
+          <app-login></app-login>
+        </div>
         <div class="dropdown-menu">
           <form class="px-4 py-3">
             <div class="form-group">
@@ -180,7 +54,7 @@
                 <mat-label>Username</mat-label>
                 <input
                   matInput
-                  [(ngModel)]="username"
+                  [(ngModel)]="this.userLogin.username"
                   name="username"
                   placeholder="Username"
                   required
@@ -195,14 +69,13 @@
                 <input
                   type="password"
                   matInput
-                  [(ngModel)]="password"
+                  [(ngModel)]="this.userLogin.password"
                   name="password"
                   placeholder="Password"
                   required
                 />
               </mat-form-field>
             </div>
-            <button (click)="login()" class="btn btn-danger">Sign in</button>
           </form>
           <div class="dropdown-divider"></div>
           <a class="dropdown-item" [routerLink]="regLink"
@@ -224,4 +97,4 @@
     </div>
   </div>
 </nav>
-<app-change-password [loggedInUser]="loggedInUser"></app-change-password>
+<!-- <app-change-password [loggedInUser]="loggedInUser"></app-change-password> -->
