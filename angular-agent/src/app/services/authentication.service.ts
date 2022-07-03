@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { BehaviorSubject, distinctUntilChanged, Observable, map } from 'rxjs';
 import { environment } from 'src/environments/environment';
-import { IRole } from '../model/role';
+import { Role } from '../model/role';
 import { IToken } from '../model/token';
 import { IUser } from '../model/user';
 import { IUserLogin } from '../model/userLogin';
@@ -64,7 +64,7 @@ export class AuthenticationService {
     return this.accessToken !== undefined && this.accessToken !== null;
   }
 
-  isAuthorized(role: IRole): Observable<boolean> {
+  isAuthorized(role: Role): Observable<boolean> {
     return this.http.post<boolean>(`${this.authUrl}/authorize`, role);
   }
 }

@@ -45,7 +45,7 @@ export class HasRoleDirective {
 
   private hasRole(): boolean {
     if (this.currentUser && this.currentUser.role && this.requiredRole) {
-      return this.currentUser.role.name === this.requiredRole;
+      return this.currentUser.role === this.requiredRole;
     }
     return false;
   }

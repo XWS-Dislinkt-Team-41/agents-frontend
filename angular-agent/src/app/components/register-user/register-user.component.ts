@@ -1,3 +1,4 @@
+import { UserService } from './../../services/user.service';
 import { emptyUser, IUser } from './../../model/user';
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Router } from '@angular/router';
@@ -16,7 +17,10 @@ export class RegisterUserComponent implements OnInit {
   modalReference!: NgbModalRef;
   today: Date = new Date();
   reservationThreeDays: Date = new Date();
-  constructor(private modalService: NgbModal) {}
+  constructor(
+    private modalService: NgbModal,
+    private userService: UserService
+  ) {}
   closeResult = '';
   newUser: IUser = emptyUser;
 
@@ -34,13 +38,10 @@ export class RegisterUserComponent implements OnInit {
     );
   }
 
-  cancel() {
-    // this.reservationService
-    //   .cancelBoatReservation(this.boatReservation)
-    //   .subscribe(() => {
-    //     this.outputFromChild.emit();
-    this.modalReference.close();
-    // });
+  register() {
+    this.userService.registerUser(this.newUser).subscribe(() => {
+      this.modalReference.close();
+    });
   }
 
   ngOnInit(): void {}

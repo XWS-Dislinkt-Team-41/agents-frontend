@@ -10,6 +10,7 @@ import {
   Input,
   SimpleChanges,
 } from '@angular/core';
+import { Role } from 'src/app/model/role';
 
 @Component({
   selector: 'app-change-password',
@@ -87,7 +88,7 @@ export class ChangePasswordComponent implements OnInit {
 
   isUserAdmin(): boolean {
     if (!this.loggedInUser) return false;
-    return this.loggedInUser.role.name === 3;
+    return this.loggedInUser.role === Role.Admin;
   }
 
   ngOnChanges(changes: SimpleChanges): void {

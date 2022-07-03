@@ -51,6 +51,10 @@ export class UserService {
     return this.http.put<any>(`${environment.apiUrl}/user/${user.id}`, user);
   }
 
+  registerUser(user: IUser): Observable<IUser> {
+    return this.http.post<any>(`${environment.apiUrl}/user/`, user);
+  }
+
   changePassword(password: string): Observable<any> {
     console.log(this.user.id);
     return this.http.put<any>(`${environment.apiUrl}/admin/changePassword`, {

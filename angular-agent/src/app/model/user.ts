@@ -1,4 +1,4 @@
-import { IRole, emptyRole } from './role';
+import { Role } from './role';
 
 export interface IUser {
   id: number;
@@ -6,7 +6,7 @@ export interface IUser {
   lastName: string;
   username: string;
   password: string;
-  role: IRole;
+  role: Role;
   token: string;
 }
 
@@ -16,6 +16,6 @@ export const emptyUser = {
   lastName: '',
   username: '',
   password: '',
-  role: emptyRole,
+  role: Role.User,
   token: '',
 };
