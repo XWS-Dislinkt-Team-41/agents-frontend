@@ -37,6 +37,7 @@ import { BasePaymentComponent } from './components/base-payment/base-payment.com
 import { NewCommentComponent } from './components/new-comment/new-comment.component';
 import { NewPaymentComponent } from './components/new-payment/new-payment.component';
 import { NewInterviewComponent } from './components/new-interview/new-interview.component';
+import { OwnerApiConnectComponent } from './pages/owner-pages/owner-api-connect/owner-api-connect.component';
 
 @NgModule({
   declarations: [
@@ -62,6 +63,7 @@ import { NewInterviewComponent } from './components/new-interview/new-interview.
     NewCommentComponent,
     NewPaymentComponent,
     NewInterviewComponent,
+    OwnerApiConnectComponent,
   ],
   imports: [
     BrowserModule,

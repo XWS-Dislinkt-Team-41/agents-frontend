@@ -7,6 +7,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './pages/home/home.component';
 import { OwnerJobOfferComponent } from './pages/owner-pages/owner-job-offer/owner-job-offer.component';
 import { OwnerJobOffersComponent } from './pages/owner-pages/owner-job-offers/owner-job-offers.component';
+import { OwnerApiConnectComponent } from './pages/owner-pages/owner-api-connect/owner-api-connect.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
@@ -16,6 +17,8 @@ const routes: Routes = [
   { path: 'company/register', component: RegisterCompanyComponent },
   { path: 'company/:id/edit', component: EditCompanyComponent },
   { path: 'company/:id', component: CompanyComponent },
+  { path: 'company', component: CompanyComponent },
+  { path: 'connectApi', component: OwnerApiConnectComponent },
   { path: '**', pathMatch: 'full', redirectTo: 'home' },
 ];
 
