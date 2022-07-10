@@ -1,4 +1,7 @@
-import { map,  startWith } from 'rxjs/operators';
+import { Router } from '@angular/router';
+import { CompanyService } from './../../services/company.service';
+import { ICompany } from 'src/app/model/company';
+import { map, startWith } from 'rxjs/operators';
 import { State } from '../../model/test';
 import { Observable } from 'rxjs';
 import { FormControl } from '@angular/forms';
@@ -7,52 +10,33 @@ import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
-  styleUrls: ['./home.component.css']
+  styleUrls: ['./home.component.css'],
 })
 export class HomeComponent implements OnInit {
-
-  ngOnInit() {
-  }
   stateCtrl = new FormControl('');
-  filteredStates: Observable<State[]>;
+  filteredStates: Observable<ICompany[]>;
 
-  states: State[] = [
-    {
-      name: 'Arkansas',
-      population: '2.978M',
-      // https://commons.wikimedia.org/wiki/File:Flag_of_Arkansas.svg
-      flag: 'https://upload.wikimedia.org/wikipedia/commons/9/9d/Flag_of_Arkansas.svg',
-    },
-    {
-      name: 'California',
-      population: '39.14M',
-      // https://commons.wikimedia.org/wiki/File:Flag_of_California.svg
-      flag: 'https://upload.wikimedia.org/wikipedia/commons/0/01/Flag_of_California.svg',
-    },
-    {
-      name: 'Florida',
-      population: '20.27M',
-      // https://commons.wikimedia.org/wiki/File:Flag_of_Florida.svg
-      flag: 'https://upload.wikimedia.org/wikipedia/commons/f/f7/Flag_of_Florida.svg',
-    },
-    {
-      name: 'Texas',
-      population: '27.47M',
-      // https://commons.wikimedia.org/wiki/File:Flag_of_Texas.svg
-      flag: 'https://upload.wikimedia.org/wikipedia/commons/f/f7/Flag_of_Texas.svg',
-    },
-  ];
-
-  constructor() {
+  states: ICompany[] = [];
+  constructor(private companyService: CompanyService, private router: Router) {
     this.filteredStates = this.stateCtrl.valueChanges.pipe(
       startWith(''),
-      map(state => (state ? this._filterStates(state) : this.states.slice())),
+      map((state) => (state ? this._filterStates(state) : this.states.slice()))
     );
   }
 
-  private _filterStates(value: string): State[] {
+  ngOnInit() {
+    this.companyService.getAllCompanies().subscribe((companies) => {
+      this.states = companies;
+    });
+  }
+  openCompany(companyId: number) {
+    this.router.navigate(['company/' + companyId]);
+  }
+  private _filterStates(value: string): ICompany[] {
     const filterValue = value.toLowerCase();
 
-    return this.states.filter(state => state.name.toLowerCase().includes(filterValue));
+    return this.states.filter((state) =>
+      state.name.toLowerCase().includes(filterValue)
+    );
   }
 }

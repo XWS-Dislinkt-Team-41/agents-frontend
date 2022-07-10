@@ -32,7 +32,9 @@ export class HasRoleDirective {
   }
 
   private updateView() {
+    console.log('pozvan');
     if (this.hasRole()) {
+      console.log('ima');
       if (!this.isVisible) {
         this.isVisible = true;
         this.viewContainer.createEmbeddedView(this.templateRef);
@@ -44,8 +46,8 @@ export class HasRoleDirective {
   }
 
   private hasRole(): boolean {
-    if (this.currentUser && this.currentUser.role && this.requiredRole) {
-      return this.currentUser.role === this.requiredRole;
+    if (this.currentUser && this.currentUser.role === this.requiredRole) {
+      return true;
     }
     return false;
   }

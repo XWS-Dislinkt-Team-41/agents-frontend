@@ -17,16 +17,22 @@
       <ul class="navbar-nav mr-auto">
         <li class="nav-item">
           <a
+            *appHasRole="0"
             class="nav-link"
-            [routerLink]="['/aplicationIncome']"
+            [routerLink]="['company/register']"
             routerLinkActive="router-link-active"
-            >Test</a
+            >Register Company</a
           >
         </li>
 
         <li class="nav-item" *ngIf="isLoggedIn() && loggedInUser">
           <a class="nav-link" [routerLink]="['/user/' + loggedInUser.id]">
             Profile
+          </a>
+        </li>
+        <li class="nav-item" *appHasRole="2">
+          <a class="nav-link" [routerLink]="['/requests']">
+            Company requests
           </a>
         </li>
       </ul>
@@ -44,44 +50,6 @@
         </div>
         <div class="btn btn-danger" type="button">
           <app-login></app-login>
-        </div>
-        <div class="dropdown-menu">
-          <form class="px-4 py-3">
-            <div class="form-group">
-              <label for="exampleDropdownFormEmail1">Username</label>
-              <ng-template>Username </ng-template>
-              <mat-form-field appearance="fill">
-                <mat-label>Username</mat-label>
-                <input
-                  matInput
-                  [(ngModel)]="this.userLogin.username"
-                  name="username"
-                  placeholder="Username"
-                  required
-                />
-              </mat-form-field>
-            </div>
-            <div class="form-group">
-              <label for="exampleDropdownFormPassword1">Password</label>
-              <ng-template matStepLabel>Fill out password</ng-template>
-              <mat-form-field appearance="fill">
-                <mat-label>Password</mat-label>
-                <input
-                  type="password"
-                  matInput
-                  [(ngModel)]="this.userLogin.password"
-                  name="password"
-                  placeholder="Password"
-                  required
-                />
-              </mat-form-field>
-            </div>
-          </form>
-          <div class="dropdown-divider"></div>
-          <a class="dropdown-item" [routerLink]="regLink"
-            >New around here? Sign up</a
-          >
-          <a class="dropdown-item" href="#">Forgot password?</a>
         </div>
       </div>
       <ul class="navbar-nav" *ngIf="isLoggedIn()">

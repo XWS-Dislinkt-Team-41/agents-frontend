@@ -1,21 +1,98 @@
 <div class="container-fluid p-5 top">
   <div class="row d-flex firsts">
-    <div class="col-3 logo"></div>
+    <div class="col-3 logo"><img [src]="company.image" alt="" /></div>
     <div class="col-4 txtl-container">
       <div class="txtl">
-        {{ company.Name }}<br />
-        <div class="txtl" *ngIf="company.Grade != 0">
-          {{ company.Grade }}
+        {{ company.name }}<br />
+        <div class="txtl" *ngIf="company.grade != 0">
+          {{ company.grade }}
         </div>
       </div>
     </div>
   </div>
   <div class="row d-flex companyt pt-3">
     <mat-tab-group>
-      <mat-tab label="About Company"> Content 1 </mat-tab>
-      <mat-tab label="Comments"> Content 2 </mat-tab>
-      <mat-tab label="Payments and benefits"> Content 3 </mat-tab>
-      <mat-tab label="Interviews"> Content 4 </mat-tab>
+      <mat-tab label="About Company">
+        <div class="container">
+          <div class="row top">
+            <div class="col-2 offset-2">Company Area</div>
+            <div class="col-3">{{ company.activityDescription }}</div>
+          </div>
+          <div class="row">
+            <div class="col-2 offset-2">Company Contact</div>
+            <div class="col-3">{{ company.contactInformation }}</div>
+          </div>
+        </div>
+      </mat-tab>
+      <mat-tab label="Comments">
+        <div class="container" *appHasRole="0">
+          <div *ngFor="let c of this.company.comments">
+            <app-base-comment [comment]="c"></app-base-comment>
+          </div>
+          <app-base-comment></app-base-comment>
+          <app-base-comment></app-base-comment>
+          <app-base-comment></app-base-comment>
+          <div class="text-white bg-dark">
+            <app-new-comment [companyId]="company.id"></app-new-comment>
+          </div>
+        </div>
+        <div class="container" *ngIf="!isLoggedIn()">
+          <div class="row top">
+            <div class="col-10 offset-1">
+              <h1>
+                Morate se registrovati kako bi videli komentare ili ukoliko
+                zelite svoj da ostavite
+              </h1>
+            </div>
+          </div>
+        </div>
+      </mat-tab>
+      <mat-tab label="Payments and benefits">
+        <div class="container" *appHasRole="0">
+          <div *ngFor="let p of this.company.jobPositionsPayments">
+            <app-base-payment [payment]="p"></app-base-payment>
+          </div>
+          <app-base-payment></app-base-payment>
+          <app-base-payment></app-base-payment>
+          <app-base-payment></app-base-payment>
+          <div class="text-white bg-dark">
+            <app-new-payment [companyId]="company.id"></app-new-payment>
+          </div>
+        </div>
+        <div class="container" *ngIf="!isLoggedIn()">
+          <div class="row top">
+            <div class="col-10 offset-1">
+              <h1>
+                Morate se registrovati kako bi videli plate ili ukoliko zelite
+                svoju da ostavite
+              </h1>
+            </div>
+          </div>
+        </div>
+      </mat-tab>
+      <mat-tab label="Interviews">
+        <div class="container" *appHasRole="0">
+          <div *ngFor="let i of this.company.interviews">
+            <app-base-interview [interview]="i"></app-base-interview>
+          </div>
+          <app-base-interview></app-base-interview>
+          <app-base-interview></app-base-interview>
+          <app-base-interview></app-base-interview>
+          <div class="text-white bg-dark">
+            <app-new-interview [companyId]="company.id"></app-new-interview>
+          </div>
+        </div>
+        <div class="container" *ngIf="!isLoggedIn()">
+          <div class="row top">
+            <div class="col-10 offset-1">
+              <h1>
+                Morate se registrovati kako bi videli intervjue ili ukoliko
+                zelite svoj da ostavite
+              </h1>
+            </div>
+          </div>
+        </div>
+      </mat-tab>
       <mat-tab label="Jobs"> Content 5 </mat-tab>
     </mat-tab-group>
   </div>

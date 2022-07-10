@@ -1,0 +1,60 @@
+<div>
+  <button
+    class="offset-5 btn btn-outline-danger reservationbtn"
+    (click)="open(content)"
+  >
+    New Interview
+  </button>
+  <ng-template #content let-modal>
+    <div class="modal-header">
+      <h4 class="modal-title" id="modal-basic-title">
+        KVZR AGENT new interview form
+      </h4>
+      <button
+        type="button"
+        class="close"
+        aria-label="Close"
+        (click)="modal.dismiss('Cross click')"
+      >
+        <i class="fa fa-close"></i>
+      </button>
+    </div>
+    <div class="modal-body">
+      <form class="px-4 py-3">
+        <div class="form-group">
+          <ng-template>HR review </ng-template>
+          <mat-form-field appearance="fill">
+            <mat-label>HR review</mat-label>
+            <input
+              matInput
+              [(ngModel)]="newInterview.hR"
+              name="hr"
+              placeholder="HR"
+              value="Enter your review for HR here..."
+              required
+            />
+          </mat-form-field>
+        </div>
+        <div class="form-group">
+          <ng-template>Technical review </ng-template>
+          <mat-form-field appearance="fill">
+            <mat-label>Technical review</mat-label>
+            <input
+              matInput
+              [(ngModel)]="newInterview.technical"
+              name="Technical"
+              placeholder="Technical"
+              value="Enter your review for technical here..."
+              required
+            />
+          </mat-form-field>
+        </div>
+      </form>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-outline-dark" (click)="register()">
+        Send
+      </button>
+    </div>
+  </ng-template>
+</div>

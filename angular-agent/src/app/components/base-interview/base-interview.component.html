@@ -1,0 +1,30 @@
+<div class="row grey pt-3 p-3">
+  <div class="col-12 pt-3"><h1>HR intervju</h1></div>
+  <div class="col-12" *ngIf="interview === undefined">
+    Intervju sa jako prijatnom osobom, prica se o generalnim stavrima o samoj
+    firmi, o samom iskustvu kandidata i njegovim ocekivanjima.
+  </div>
+  <div class="col-12" *ngIf="interview !== undefined">
+    {{ interview.hR }}
+  </div>
+  <div class="col-12 pt-3"><h1>Tehnički intervju</h1></div>
+  <div class="col-12" *ngIf="interview !== undefined">
+    Tehnicki intervju vode dva senior developera. Na pocetku se prica o samom
+    iskustvu kandidata, na kojim projektima je radio, i sa koliko ljudi.
+    Postavljaju neka generalna pitanja o jeziku(javascript/react u mome
+    slucaju), da se opise svojim recima kako se razumeju odrednjeni pojmovi.
+    Recimo javascript async ili http. Takodje neka osnovna pitanja o css-u,
+    recimo jacina css selektora. Na kraju se radi lagan algoritamski zadatak, u
+    mome slucaju razumevanje jedne array metode. U svakom slucaju prijatno
+    iskustvo, ocenio bih tezinu intervjua kao srednje tezak.
+  </div>
+  <div class="col-12" *ngIf="interview !== undefined">
+    {{ interview.technical }}
+  </div>
+  <div class="col-12 pt-3">
+    <h3>
+      Software Developer (Medior) <br />
+      Intervju iz 2022. godine
+    </h3>
+  </div>
+</div>

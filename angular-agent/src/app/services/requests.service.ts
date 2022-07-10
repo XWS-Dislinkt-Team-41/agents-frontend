@@ -21,6 +21,17 @@ export class RequestsService {
     this.openDialogRegistration$.emit(request);
   }
 
+  registerCompany(
+    request: ICompanyRegistrationRequest
+  ): Observable<ICompanyRegistrationRequest> {
+    return this.http
+      .post<ICompanyRegistrationRequest>(
+        `${this.registrationRequestsUrl}`,
+        request
+      )
+      .pipe(catchError(this.handleError));
+  }
+
   submitedRegistrationRequest() {
     this.submitedRegistrationRequest$.emit();
   }

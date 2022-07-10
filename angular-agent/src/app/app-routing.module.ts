@@ -1,3 +1,5 @@
+import { RegisterCompanyComponent } from './pages/register-company/register-company.component';
+import { EditCompanyComponent } from './pages/edit-company/edit-company.component';
 import { RequestsComponent } from './pages/admin-pages/requests/requests.component';
 import { CompanyComponent } from './pages/company/company.component';
 import { NgModule } from '@angular/core';
@@ -11,7 +13,9 @@ const routes: Routes = [
   { path: 'requests', component: RequestsComponent },
   { path: 'jobOffer/:id', component: OwnerJobOfferComponent },
   { path: 'jobOffers', component: OwnerJobOffersComponent },
-  { path: 'company', component: CompanyComponent },
+  { path: 'company/register', component: RegisterCompanyComponent },
+  { path: 'company/:id/edit', component: EditCompanyComponent },
+  { path: 'company/:id', component: CompanyComponent },
   { path: '**', pathMatch: 'full', redirectTo: 'home' },
 ];
 

@@ -20883,3 +20883,31 @@ ngb-datepicker .ngb-dp-months ngb-datepicker-month-view .ngb-dp-week .ngb-dp-day
     height: 200px;
     width: 100%;
 }
+
+
+/* You can add global styles to this file, and also import other style files */
+
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+.companyt .mat-tab-label {
+  background: #e8e6e6;
+  margin-right: 30px;
+  height: 45px;
+  width: 200px;
+}
+
+.mat-tab-nav-bar,
+.mat-tab-header {
+  border-bottom: none !important;
+}
+
+.mat-ink-bar {
+  background-color: #b53f3f !important;
+}

@@ -1,11 +1,28 @@
+import { IJobPositionPayment } from './jobPositionPayment';
+import { IInterview } from './interview';
+import { IComment } from './comment';
 export interface ICompany {
-  Name: string;
-  Grade: number;
-  UsersGrade: number[];
+  id: number;
+  name: string;
+  grade: number;
+  usersGrade: number[];
+  image: string;
+  contactInformation: string;
+  activityDescription: string;
+  comments: IComment[];
+  interviews: IInterview[];
+  jobPositionsPayments: IJobPositionPayment[];
 }
 
 export const emptyCompany = {
-  Name: 'Company',
-  Grade: 0,
-  UsersGrade: [],
+  id: 0,
+  name: 'Company',
+  grade: 0,
+  usersGrade: [],
+  image: '',
+  contactInformation: '',
+  activityDescription: '',
+  comments: [],
+  interviews: [],
+  jobPositionsPayments: [],
 };

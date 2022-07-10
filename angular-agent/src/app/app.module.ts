@@ -29,6 +29,14 @@ import { LoginComponent } from './components/login/login.component';
 import { RegisterUserComponent } from './components/register-user/register-user.component';
 import { CompanyComponent } from './pages/company/company.component';
 import { HasRoleDirective } from './directive/hasRole.directive';
+import { BaseCommentComponent } from './components/base-comment/base-comment.component';
+import { BaseInterviewComponent } from './components/base-interview/base-interview.component';
+import { RegisterCompanyComponent } from './pages/register-company/register-company.component';
+import { EditCompanyComponent } from './pages/edit-company/edit-company.component';
+import { BasePaymentComponent } from './components/base-payment/base-payment.component';
+import { NewCommentComponent } from './components/new-comment/new-comment.component';
+import { NewPaymentComponent } from './components/new-payment/new-payment.component';
+import { NewInterviewComponent } from './components/new-interview/new-interview.component';
 
 @NgModule({
   declarations: [
@@ -40,11 +48,20 @@ import { HasRoleDirective } from './directive/hasRole.directive';
     RegistrationRequestsComponent,
     AnswerRegistrationRequestComponent,
     OwnerJobOffersComponent,
+    OwnerJobOfferComponent,
     JobOfferComponent,
     RegisterUserComponent,
     LoginComponent,
     CompanyComponent,
-    HasRoleDirective
+    HasRoleDirective,
+    BaseCommentComponent,
+    BaseInterviewComponent,
+    RegisterCompanyComponent,
+    EditCompanyComponent,
+    BasePaymentComponent,
+    NewCommentComponent,
+    NewPaymentComponent,
+    NewInterviewComponent,
   ],
   imports: [
     BrowserModule,

@@ -4,7 +4,6 @@ import { Router } from '@angular/router';
 import { BehaviorSubject, distinctUntilChanged, Observable, map } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { Role } from '../model/role';
-import { IToken } from '../model/token';
 import { IUser } from '../model/user';
 import { IUserLogin } from '../model/userLogin';
 

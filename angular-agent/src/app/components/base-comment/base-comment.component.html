@@ -1,0 +1,48 @@
+<div class="row grey pt-3 p-3">
+  <div class="col-12 pt-3"><h1>Pozitivno</h1></div>
+  <div class="col-12" *ngIf="comment === undefined">
+    Iskustvo rada u velikoj kompaniji. Iskustvo rada na velikim projektima.
+    Generalno zdrava priča. Ok za neki početak čini mi se. Ja sam radio na
+    velikom projektu, mikroservisna arhitektura i mogu reci da mi je znacilo to
+    iskustvo. Uslovi solidni. Ja sam sve vreme angazmana radio od kuce sa retkim
+    odlascima u kanc, tako da verujem da bi iskustvo bilo jos lepse da se cesce
+    radilo iz kancelarije. Ne znam da li je ovo dobro ili lose, zavisi, ali moze
+    doobro da se hvata krivina 😉
+  </div>
+  <div class="col-12" *ngIf="comment !== undefined">
+    {{ comment.positiveImpression }}
+  </div>
+  <div class="col-12 pt-3"><h1>Negativno</h1></div>
+  <div class="col-12" *ngIf="comment === undefined">
+    Velika kompanija. Mnogo ljudi. Mozda je malo teze istaci se u tolikoj masi.
+    Nemam vecih zamerki. Mozda bi moglo da se vise radi na zadrzavanju
+    zaposlenih jer je fluktuacija zaposlenih ogromna, ovako odokativno, cini mi
+    se i iznad proseka. Znam da je tesko naci kvalitetne ljude i da su budzeti
+    ograniceni ali potrudite se da dovodite kvalitetnije ljude, ima mnogo
+    priucenih u endavi 😬
+  </div>
+  <div class="col-12" *ngIf="comment !== undefined">
+    {{ comment.negativeImpression }}
+  </div>
+  <div class="col-12 pt-3"><h1>Projekti</h1></div>
+  <div class="col-12" *ngIf="comment === undefined">
+    Radio sam samo na 1 projektu, veliki projekat dosta timova mikroservisna
+    arhitektura, korisno iskustvo. Poslednjih par meseci je doslo do zasicenja
+    ali postoji mogucnost menjanja projekata.
+  </div>
+  <div class="col-12" *ngIf="comment !== undefined">
+    {{ comment.projectsImpression }}
+  </div>
+  <div class="col-12 pt-3" *ngIf="comment === undefined">
+    <h3>
+      Software Developer (Medior) <br />
+      ZaposlenFull time(Napustio kompaniju 2022.)
+    </h3>
+  </div>
+  <div class="col-12 pt-3" *ngIf="comment !== undefined">
+    <h3>
+      {{ comment.userEngagement }} <br />
+      {{ comment.date }}
+    </h3>
+  </div>
+</div>
