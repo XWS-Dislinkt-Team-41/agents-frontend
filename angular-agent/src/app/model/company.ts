@@ -5,6 +5,7 @@ export interface ICompany {
   id: number;
   name: string;
   grade: number;
+  ownerId: number;
   usersGrade: number[];
   image: string;
   contactInformation: string;
@@ -17,6 +18,7 @@ export interface ICompany {
 export const emptyCompany = {
   id: 0,
   name: 'Company',
+  ownerId: 0,
   grade: 0,
   usersGrade: [],
   image: '',

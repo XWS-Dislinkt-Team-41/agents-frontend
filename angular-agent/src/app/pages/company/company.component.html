@@ -93,7 +93,9 @@
           </div>
         </div>
       </mat-tab>
-      <mat-tab label="Jobs"> Content 5 </mat-tab>
+      <mat-tab label="Jobs">
+        <app-owner-job-offers [companyId]="companyId"></app-owner-job-offers>
+      </mat-tab>
     </mat-tab-group>
   </div>
 </div>

@@ -1,5 +1,5 @@
 import { IJobOffer, emptyJobOffer } from 'src/app/model/jobOffer';
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { JobOfferService } from 'src/app/services/job-offer.service';
 
 @Component({
@@ -8,16 +8,13 @@ import { JobOfferService } from 'src/app/services/job-offer.service';
   styleUrls: ['./owner-job-offers.component.css'],
 })
 export class OwnerJobOffersComponent implements OnInit {
-  jobOffers: IJobOffer[] = [
-    emptyJobOffer,
-    emptyJobOffer
-  ];
-
+  @Input() companyId!: number;
+  jobOffers: IJobOffer[] = [emptyJobOffer, emptyJobOffer];
   constructor(private jobOfferService: JobOfferService) {}
 
   ngOnInit(): void {
     this.jobOfferService
-      .getCompanyJobOffers(1)
+      .getCompanyJobOffers(this.companyId)
       .subscribe((jobOffers) => (this.jobOffers = jobOffers));
   }
 }
