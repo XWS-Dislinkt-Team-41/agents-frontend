@@ -46,7 +46,7 @@ export class RequestsService {
     request: ICompanyRegistrationRequest
   ): Observable<ICompanyRegistrationRequest> {
     return this.http
-      .post<ICompanyRegistrationRequest>(
+      .put<ICompanyRegistrationRequest>(
         `${this.registrationRequestsUrl}/accept/${request.id}`,
         request
       )
@@ -57,7 +57,7 @@ export class RequestsService {
     request: ICompanyRegistrationRequest
   ): Observable<ICompanyRegistrationRequest> {
     return this.http
-      .post<ICompanyRegistrationRequest>(
+      .put<ICompanyRegistrationRequest>(
         `${this.registrationRequestsUrl}/decline/${request.id}`,
         request
       )

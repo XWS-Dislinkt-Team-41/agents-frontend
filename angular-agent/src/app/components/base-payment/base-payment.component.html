@@ -4,9 +4,9 @@
   </div>
   <div class="col-3 pt-3" *ngIf="payment === undefined"><h1>2000$</h1></div>
   <div class="col-9 pt-3" *ngIf="payment !== undefined">
-    <h1>{{ payment.nameOfPosition }}</h1>
+    <h1>{{ payment.jobPosition }}</h1>
   </div>
   <div class="col-3 pt-3" *ngIf="payment !== undefined">
-    <h1>{{ payment.price }}$</h1>
+    <h1>{{ payment.average }}$</h1>
   </div>
 </div>

@@ -8,7 +8,7 @@ export interface IPayment {
   userId: number;
   jobPosition: string;
   price: number;
-  jobPositionPaymentDTO: IJobPositionPayment;
+  jobPositionPayment: IJobPositionPayment;
 }
 
 export const emptyPayment = {
@@ -16,5 +16,5 @@ export const emptyPayment = {
   userId: 0,
   jobPosition: '',
   price: 0,
-  jobPositionPaymentDTO: emptyJobPositionPayment,
+  jobPositionPayment: emptyJobPositionPayment,
 };

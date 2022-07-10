@@ -1,13 +1,13 @@
 export interface IInterview {
   interviewedCompanyId: number;
-  hR: string;
+  hr: string;
   technical: string;
   date: Date;
 }
 
 export const emptyInterview = {
   interviewedCompanyId: 0,
-  hR: '',
+  hr: '',
   technical: '',
   date: new Date(),
 };

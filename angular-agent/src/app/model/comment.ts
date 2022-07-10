@@ -1,5 +1,5 @@
 export interface IComment {
-  reviewedJobId: number;
+  reviewedCompanyId: number;
   userId: number;
   jobPosition: string;
   positiveImpression: string;
@@ -10,7 +10,7 @@ export interface IComment {
 }
 
 export const emptyComment = {
-  reviewedJobId: 0,
+  reviewedCompanyId: 0,
   userId: 0,
   jobPosition: '',
   positiveImpression: '',

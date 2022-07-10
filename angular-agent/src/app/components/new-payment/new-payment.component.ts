@@ -48,10 +48,10 @@ export class NewPaymentComponent implements OnInit {
 
   register() {
     this.newPayment.companyId = this.companyId;
-    this.newPayment.jobPositionPaymentDTO.companyId = this.companyId;
-    this.newPayment.jobPositionPaymentDTO.nameOfPosition =
+    this.newPayment.jobPositionPayment.companyId = this.companyId;
+    this.newPayment.jobPositionPayment.nameOfPosition =
       this.newPayment.jobPosition;
-    this.newPayment.jobPositionPaymentDTO.price = this.newPayment.price;
+    this.newPayment.jobPositionPayment.price = this.newPayment.price;
     this.newPayment.userId = this.userId;
     this.companyService.createPayment(this.newPayment).subscribe(() => {
       this.modalReference.close();

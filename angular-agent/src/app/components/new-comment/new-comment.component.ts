@@ -46,7 +46,7 @@ export class NewCommentComponent implements OnInit {
   }
 
   register() {
-    this.newComment.reviewedJobId = this.companyId;
+    this.newComment.reviewedCompanyId = this.companyId;
     this.newComment.userId = this.userId;
     this.newComment.date = new Date();
     this.companyService.createComment(this.newComment).subscribe(() => {
